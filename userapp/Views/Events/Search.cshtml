@@ -1,0 +1,66 @@
+﻿@using System.Linq
+@model List<userapp.Models.Event>
+@{
+    ViewData["Title"] = "Search & Filter";
+}
+
+<h2>Search & Filter Events</h2>
+
+<form method="get">
+    <div class="form-group">
+        <label for="searchTerm">Search Term:</label>
+        <input type="text" id="searchTerm" name="searchTerm" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" name="category" class="form-control">
+            <option value="">--Select Category--</option>
+            <option value="Music">Music</option>
+            <option value="Sports">Sports</option>
+            <option value="Technology">Technology</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <h3>Search Results</h3>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())  
+        {
+            @foreach (var eventItem in Model)
+            {
+                <tr>
+                    <td>@eventItem.Title</td>
+                        <td>@eventItem.EventType</td>
+                        <td>@eventItem.StartDate.ToShortDateString()</td>
+                    <td>@eventItem.Description</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No events found matching your criteria.</td>  
+            </tr>
+        }
+    </tbody>
+</table>
+}
