@@ -30,16 +30,17 @@
                 <input asp-for="ConfirmPassword" class="form-control" />
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display: flex; align-items: center; gap: 100px;">
                 <label asp-for="Role" class="control-label">Role</label>
-                <div>
+                <div style="display: flex; align-items: center; gap: 20px;">
                     <input type="radio" id="admin" name="Role" value="Admin" />
-                    <label for="admin">Admin</label>
+                    <label for="admin">organized </label>
                     <input type="radio" id="user" name="Role" value="User" checked />
-                    <label for="user">User</label>
+                    <label for="user">participant</label>
                 </div>
                 <span asp-validation-for="Role" class="text-danger"></span>
             </div>
+            <br />
             <input type="submit" value="Register" class="btn btn-success w-100 p-2" />
             <p class="text-center mt-2">
                 Already have an account? <a asp-controller="Account" asp-action="Login" class="text-decoration-none">Login</a>

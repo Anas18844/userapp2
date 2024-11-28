@@ -70,7 +70,7 @@ namespace UsersApp.Controllers
                     // إذا كان المستخدم من نوع "User"، نقله إلى الصفحة الرئيسية
                     if (model.Role == "User")
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Login", "Account");
                     }
 
                     // إذا كان المستخدم من نوع "Admin"، نقله إلى صفحة تسجيل الدخول
